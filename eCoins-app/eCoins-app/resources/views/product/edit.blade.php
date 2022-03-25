@@ -19,7 +19,7 @@
         </div>
       <div class="form-group w-25 p3">
         <label for="exampleFormControlTextarea1">Descrição</label>
-        <textarea name="description" value="" placeholder="{{$product->description}}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <input style="width:330px; height:100px" name="description" value="{{$product->description}}" class="form-control" id="exampleFormControlTextarea1" rows="3">
       </div>
       <br>
       <button type="submit" class="btn btn-success">Enviar</button>
