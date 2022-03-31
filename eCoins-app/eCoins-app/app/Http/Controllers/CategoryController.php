@@ -30,4 +30,8 @@ class CategoryController extends Controller
         return redirect(route('category.index'));
     }
 
+    public function edit(Category $category){
+        return view('/category/edit')->with('category', $category);
+    }
+
 }

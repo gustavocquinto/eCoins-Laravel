@@ -18,14 +18,21 @@
         </tr>
     </thead>
     <tbody>
+        @if(count($categories) == false)
+            <tr>
+                <td class="text-center" style="color:red;"> Não há categorias registradas</td>
+            </tr>
+        @else
+
             @foreach($categories as $category)
             <tr>
                 <td> {{$category->name}} </td>
                 <td> {{$category->created_at}} </td>
-                <td><a href="" class="btn btn-secondary"> Editar </a> </td>
+                <td><a href="{{route('category.edit', $category->id)}}" class="btn btn-secondary"> Editar </a> </td>
                 <td><a href="{{route('category.destroy', $category->id)}}" class="btn btn-danger"> Apagar </a> </td>
             </tr>
             @endforeach
+        @endif
 
     </tbody>
 </table>
