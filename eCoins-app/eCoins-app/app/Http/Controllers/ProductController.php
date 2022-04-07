@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -13,7 +14,7 @@ class ProductController extends Controller
     }
 
     public function create(){
-        return view('/product/create');
+        return view('/product/create')->with(['categories' => Category::all()]);
     }
 
     public function store(Request $request){
@@ -37,4 +38,5 @@ class ProductController extends Controller
         session()->flash('sucess', 'Produto Atualizado com Sucesso');
         return redirect(route('product.index'));
     }
+
 }

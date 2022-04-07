@@ -21,6 +21,11 @@
         </tr>
     </thead>
     <tbody>
+        @if(count($products) == false)
+            <tr>
+                <td class="text-center" style="color:red;"> Não há produtos registrados</td>
+            </tr>
+        @else
             @foreach($products as $product)
             <tr>
                 <td> {{$product->name}} </td>
@@ -31,6 +36,7 @@
                 <td><a href="{{route('product.destroy', $product->id)}}" class="btn btn-danger"> Apagar </a> </td>
             </tr>
             @endforeach
+        @endif
 
     </tbody>
 </table>

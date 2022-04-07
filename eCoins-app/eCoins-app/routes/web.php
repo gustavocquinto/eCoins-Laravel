@@ -19,6 +19,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
 
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
@@ -34,3 +42,4 @@ Route::post('/category/store', [CategoryController::class, 'store'])->name('cate
 Route::get('/category/destroy/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
 Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
 
+require __DIR__.'/auth.php';

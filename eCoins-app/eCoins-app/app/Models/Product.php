@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['name', 'description', 'stock', 'price'];
+    protected $fillable = ['name', 'description', 'stock', 'price', 'category_id'];
     use HasFactory;
+
+    public function Category(){
+        return $this->hasOne(Category::class);
+    }
 }

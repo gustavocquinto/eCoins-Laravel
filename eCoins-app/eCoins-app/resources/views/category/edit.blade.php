@@ -2,7 +2,7 @@
 <div>
     {{session()->get('sucess')}}
 </div>
-<form method="POST" action="">
+<form method="POST" action="href="{{route('category.destroy', $category->id)}}>
     @csrf
     @method('put')
     <div class="form-group form-group w-25 p3">
