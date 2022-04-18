@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     //
     public function index (Product $product){
-        return view('product.index')->with('products', Product::all());
+        return view('product.index')->with(['products' => Product::all(), 'categories' => Category::all()]);
     }
 
     public function create(){
