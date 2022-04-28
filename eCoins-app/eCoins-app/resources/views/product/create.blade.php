@@ -17,7 +17,7 @@
         <div class="form-group form-group w-25 p3 row mx-auto mb-3">
             <label for="category"> Selecione uma categoria </label>
 
-            <select name="category_id" name="category" class="form-select form-select-sm">
+            <select name="category_id" class="form-select form-select-sm">
                 @foreach ($categories as $category)
                 <option value="{{$category->id}}">{{$category->name}}</option>
                 @endforeach
@@ -25,9 +25,9 @@
 
         </div>
         <div class="form-group w-25 p3 row mx-auto">
-        <label for="exampleFormControlTextarea1">Descrição</label>
-        <textarea name="description"  placeholder="Digite a descrição do produto" class="form-control mb-3" id="exampleFormControlTextarea1" rows="3"></textarea>
-        <button type="submit" class="btn btn-success">Enviar</button>
+            <label for="exampleFormControlTextarea1">Descrição</label>
+            <textarea name="description"  placeholder="Digite a descrição do produto" class="form-control mb-3" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <button type="submit" class="btn btn-success">Enviar</button>
         </div>
     </div>
 

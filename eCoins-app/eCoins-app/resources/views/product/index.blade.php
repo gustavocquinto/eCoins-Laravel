@@ -15,6 +15,7 @@
             <th> Nome produto </td>
             <th> Quantidade </th>
             <th> Preco </>
+            <th> Categoria </th>
             <th> Descricao </td>
             <th> Editar </td>
             <th> Apagar </td>
@@ -31,8 +32,9 @@
                 <td> {{$product->name}} </td>
                 <td> {{$product->stock}} </td>
                 <td> {{$product->price}} </td>
+                <td> {{$product->Category->name}} </td>
                 <td> {{$product->description}} </td>
-                <td><a href="{{route('product.edit', $product->id)}}" class="btn btn-secondary"> Editar </a> </td>
+                <td><a href="{{route('product.edit', $product->id, $product->category_id)}}" class="btn btn-secondary"> Editar </a> </td>
                 <td><a href="{{route('product.destroy', $product->id)}}" class="btn btn-danger"> Apagar </a> </td>
             </tr>
             @endforeach
