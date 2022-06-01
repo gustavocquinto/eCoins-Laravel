@@ -1,59 +1,39 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+</head>
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+<body>
+    <main>
+        <div class="container-login">
+            <div class="login-text">
+                <h1 class="login-h1">Cadastre-se</h1>
+                <p class="login-p">Cadastre-se no ECOIN</p>
+                <x-auth-validation-errors class="error" :errors="$errors" />
+                <form class="login-form" method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <input type="text" name="name" id="name" :value="old('name')" placeholder="Insira seu nome" required autofocus>
+                    <input type="email" name="email" id="email" placeholder="Insira seu Email" title="é necessário inserir um email" :value="old('email')" required />
+                    <input type="password" name="password" id="password" placeholder="Insira sua senha" autocomplete="new-password" required>
+                    <input id="password_confirmation" type="password" name="password_confirmation" placeholder="repita sua senha" required />
+                    <input type="tel" name="tel" id="tel" placeholder="Insira o seu telefone" required>
+                    <button type="submit" name="myButton" value="foo"> {{ __('Register') }}</button>
+                </form>
+                <p>Já tem uma conta? <a href="{{ route('login') }}">{{ __('Faça Login') }}</a></p>
             </div>
-
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            <div class="login-image">
+                <img src="{{ asset('images/Rectangle 40.png') }}" alt="Personagem do Counter Strike GO"
+                    title="Personagem do Counter Strike Go">
             </div>
+        </div>
+    </main>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+</body>
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+</html>
