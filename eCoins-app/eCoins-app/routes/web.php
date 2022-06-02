@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,17 +16,11 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
@@ -35,11 +30,11 @@ Route::get('product/destroy/{product}', [ProductController::class, 'destroy'])->
 Route::get('product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
 Route::put('product/edit/{product}', [ProductController::class, 'update'])->name('product.update');
 
-
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
 Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
 Route::get('/category/destroy/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
 Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
 
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 require __DIR__.'/auth.php';
