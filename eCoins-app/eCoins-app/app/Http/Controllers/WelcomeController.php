@@ -11,4 +11,9 @@ class WelcomeController extends Controller
     {
         return view('welcome')->with(['products' => Product::all(), 'categories' => Category::all()]);
     }
+
+    function detail($id){
+        $data = Product::find($id);
+        return view('product.detail', ['products' => $data]);
+    }
 }

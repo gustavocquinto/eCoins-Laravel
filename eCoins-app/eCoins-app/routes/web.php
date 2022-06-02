@@ -37,4 +37,5 @@ Route::get('/category/destroy/{category}', [CategoryController::class, 'destroy'
 Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+Route::get('detail/{id}', [WelcomeController::class, 'detail'])->name('detail');
 require __DIR__.'/auth.php';

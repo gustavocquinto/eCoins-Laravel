@@ -29,7 +29,7 @@
                 <div class="contentBox">
                     <h3>{{$product['name']}}</h3>
                     <h2 class="price">R$ {{$product['price']}}</h2>
-                    <a href="{{ url('#') }}" class="buy">Comprar</a>
+                    <a href="detail/{{$product['id']}}" class="buy">Comprar</a>
                 </div>
             </div>
             @endforeach
