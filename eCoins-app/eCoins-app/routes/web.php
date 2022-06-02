@@ -28,8 +28,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth'])->group(function(){
-    Route::get('/product/create', [ProductController::class, 'create'])->name('product.create')->middleware(['admin']);
+Route::middleware(['admin'])->group(function(){
+    Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
     Route::post('/product/create', [ProductController::class, 'store'])->name('product.store');
     Route::get('product/destroy/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
     Route::get('product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
