@@ -136,6 +136,9 @@ label.logo {
     padding: 0 100px;
     font-weight: bold;
 }
+.logo:hover{
+    cursor: pointer;
+}
 nav ul {
     float: right;
     margin-right: 20px;
@@ -154,9 +157,11 @@ nav ul li a {
 .active {
     background: #f77e09;
 }
-a:hover {
+
+ul a:hover {
     background: #f77e09;
     transition: 1s;
+    cursor: pointer;
 }
 .checkbtn {
     font-size: 30px;
@@ -420,17 +425,16 @@ main h1:nth-child(1) {
 .container-product {
     display: flex;
     color: white;
+    margin-left: 20%;
 }
 
 .product-image {
-    border: #f77e09 solid 2px;
+    border: #f77e09 solid 1px;
     order: 1;
-    margin-left: 10%;
     margin-top: 50px;
 }
 
 .product-image img {
-    width: 500px;
     height: 600px;
 }
 

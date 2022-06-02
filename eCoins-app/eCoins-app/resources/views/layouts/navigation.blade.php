@@ -3,7 +3,8 @@
     <label for="check" class="checkbtn">
         <i class="fas fa-bars"></i>
     </label>
-    <label class="logo">ECOIN</label>
+
+    <a href="{{ url('/') }}"><label class="logo">ECOIN</label>
     <ul>
         @if (Route::has('login'))
             @auth
