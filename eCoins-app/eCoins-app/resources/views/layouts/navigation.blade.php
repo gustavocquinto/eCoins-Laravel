@@ -14,6 +14,7 @@
                     <div class="dropdown-content">
                         <p><a href="{{ route('dashboard') }}" class="">Meu Perfil</a></p>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
                          <p><button type="submit" class="logout-button">Deslogar</button></p>
                         </form>
                     </div>

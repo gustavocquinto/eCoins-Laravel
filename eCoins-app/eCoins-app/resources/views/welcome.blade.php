@@ -34,7 +34,5 @@
             @endforeach
         </section>
     </main>
-    <footer>
-        <p>&copy; ECOIN - SENAC - 2022</p>
-    </footer>
+    @include('components.footer')
 </body>
