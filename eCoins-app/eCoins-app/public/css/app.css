@@ -139,6 +139,7 @@ label.logo {
 .logo:hover{
     cursor: pointer;
 }
+
 nav ul {
     float: right;
     margin-right: 20px;
@@ -306,6 +307,21 @@ ul a:hover {
     top: 20%;
     left: 10%;
 }
+.main-div button{
+    background-color: #f77e09;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 300;
+    cursor: pointer;
+    position: relative;
+    left: 82%;
+    top: -40px;
+    width: 200px;
+    height: 60px;
+  }
 
 main h1 {
     font-style: normal;
@@ -500,6 +516,59 @@ main h1:nth-child(1) {
     position: relative;
     display: inline-block;
 }
+
+
+.table-content{
+    background-color: #333547;
+    color: white;
+    padding: 10px;
+    width: 80vw;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 1.2em;
+  }
+
+  .table-content .actions{
+    position: relative;
+    left: 50px;
+  }
+
+  .table-content a{
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 300;
+    cursor: pointer;
+    position: relative;
+    left: 25px;
+  }
+  .table-content .actions area:nth-child(2){
+    background-color: red;
+  }
+
+  .table-content .actions a:hover{
+    transform: scale(1.1);
+  }
+
+  .noProduct{
+    color: white;
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
 
 footer {
     height: 7vh;
