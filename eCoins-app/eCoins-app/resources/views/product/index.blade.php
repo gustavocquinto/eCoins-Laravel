@@ -1,55 +1,56 @@
-@extends("layouts.app")
-@section("content")
-<h1> ESTE É O INDEX DE PRODUTO </h1>
-<div>
-    <p style="color: green"> {{session()->get('sucess')}} </p>
-    <p style="color: red;"> {{session()->get('noAccess')}} </p>
-</div>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Produto</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
 
-<div class="d-flex flex-row-reverse bd-highlight">
-    @if(Auth::check() && Auth::user()->admin == 1)
-    <a class="btn btn-primary" href="{{route('product.create')}}" role="button">CRIAR PRODUTO</a>
-    @endif
-  </div>
+<body>
+    <header>
+        @include('layouts.navigation')
+        <div class="main-div">
+            <h1>Produtos</h1>
+            <p>Verifique todos os produtos cadastrados no site.</p>
+            <button type="submit"><a href="{{route('product.create')}}">Criar Produto</a></button>
+        </div>
+    </header>
+    <main>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th> Nome produto </td>
-            <th> Quantidade </th>
-            <th> Preco </>
-            <th> Categoria </th>
-            <th> Descricao </td>
-            @if(Auth::check() && Auth::user()->admin)
-            <th> Editar </td>
-            <th> Apagar </td>
-            @endif
-        </tr>
-    </thead>
-    <tbody>
-        @if(count($products) == false)
-            <tr>
-                <td class="text-center" style="color:red;"> Não há produtos registrados</td>
-            </tr>
-        @else
-
+        <div class="table-container">
+            <div class="table-content">
+                <p>ID</p>
+                <p>Nome do Produto</p>
+                <p>Valor</p>
+                <p>Quantidade</p>
+                <p>Categoria</p>
+                <p>Ações</p>
+            </div>
+            @if (count($products) == false)
+                <p class="noProduct">Nenhum Produto Cadastrado</p>
+            @else
             @foreach($products as $product)
-
-            <tr>
-                <td> {{$product->name}} </td>
-                <td> {{$product->stock}} </td>
-                <td> {{$product->price}} </td>
-                <td> {{$product->category_id}} </td>
-                <td> {{$product->description}} </td>
-                @if(Auth::check() && Auth::user()->admin)
-                <td><a href="{{route('product.edit', $product->id)}}" class="btn btn-secondary"> Editar </a> </td>
-                <td><a href="{{route('product.destroy', $product->id)}}" class="btn btn-danger"> Apagar </a> </td>
-                @endif
-            </tr>
-
+                <div class="table-content">
+                    <p>#0001</p>
+                    <p>{{$product->name}}</p>
+                    <p>R$ {{$product->price}}</p>
+                    <p>{{ $product->stock }}</p>
+                    <p>{{ $product->category_id }} </p>
+                    <p>
+                        <a href="{{ route('product.edit', $product->id) }}">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="{{ route('product.destroy', $product->id) }}">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                </div>
             @endforeach
-        @endif
+@endif
+        </div>
+    </main>
 
-    </tbody>
-</table>
-@endsection
+
+</body>

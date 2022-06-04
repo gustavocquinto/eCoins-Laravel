@@ -18,8 +18,16 @@ class ProductController extends Controller
     }
 
     public function store(Request $request){
-        $product = Product::create($request->all());
-        session()->flash('sucess', 'Produto criado com sucesso');
+        $image = "/storage/".$request->file('image')->store('itens');
+        $product = Product::create([ //cria um novo produto no banco de dados com os dados do formulário e o caminho da imagem salva no storage no banco de dados
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'stock' => $request->stock,
+            'category_id' => $request->category_id,
+            'image' => $image,
+        ]);
+        session()->flash('success','Produto Criado com Sucesso!');
         return redirect(route('product.index'));
     }
 
@@ -34,8 +42,28 @@ class ProductController extends Controller
     }
 
     public function update(Product $product, Request $request){
-        $product->update($request->all());
-        session()->flash('sucess', 'Produto Atualizado com Sucesso');
+        if($request->image){
+            $image = "/storage/".$request->file('image')->store('itens');
+            $product->update([
+                'name' => $request->name,
+                'description' => $request->description,
+                'price' => $request->price,
+                'stock' => $request->stock,
+                'category_id' => $request->category_id,
+                'image' => $image
+            ]);
+        }
+        else
+            $product->update([
+                'name' => $request->name,
+                'description' => $request->description,
+                'price' => $request->price,
+                'stock' => $request->stock,
+                'category_id' => $request->category_id,
+            ]);
+
+        $product->Tags()->sync($request->tags);
+        session()->flash('success','Produto Editado com Sucesso!');
         return redirect(route('product.index'));
     }
 
