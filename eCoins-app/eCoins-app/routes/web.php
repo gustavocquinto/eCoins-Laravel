@@ -33,9 +33,11 @@ Route::middleware(['admin'])->group(function(){
     Route::get('/category/destroy/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
     Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
 
+    Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+    Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+
 });
-Route::get('/product', [ProductController::class, 'index'])->name('product.index');
-Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+
 
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');

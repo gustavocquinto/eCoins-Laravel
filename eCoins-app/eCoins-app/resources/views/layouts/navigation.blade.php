@@ -8,8 +8,18 @@
     <ul>
         @if (Route::has('login'))
             @auth
-                <div class="dropdown">
+                    @if(Auth::user()->admin == 1)
+                    <div class="dropdown">
+                    <li><a class="">Painel do Administrador</a></li>
+                    <div class="dropdown-content">
+                        <p><a href="{{ route('product.index') }}" class="">Produtos</a></p>
+                        </form>
+                    </div>
+                  </div>
+                  @endif
+                  <div class="dropdown">
                     <li><a class="active">Oi, {{ Auth::user()->name }}</a></li>
+
                     <div class="dropdown-content">
                         <p><a href="{{ route('dashboard') }}" class="">Meu Perfil</a></p>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
@@ -18,17 +28,8 @@
                         </form>
                     </div>
                   </div>
-                  <div class="dropdown">
-                    @if(Auth::user()->admin == 1)
-                    <li><a class="">Painel do Administrador</a></li>
-                    <div class="dropdown-content">
-                        <p><a href="{{ route('product.index') }}" class="">Produtos</a></p>
-                        </form>
-                    </div>
-                  </div>
-                  @endif
             @else
-
+                <li><a>Carrinho</a></li>
                 <li><a href="{{ route('login') }}" class="">Entrar</a></li>
             @endauth
         @endif
