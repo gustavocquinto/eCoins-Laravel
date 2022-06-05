@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,7 +16,7 @@
         <div class="main-div">
             <h1>Produtos</h1>
             <p>Verifique todos os produtos cadastrados no site.</p>
-            <button type="submit"><a href="{{route('product.create')}}">Criar Produto</a></button>
+            <button type="submit"><a href="{{ route('product.create') }}">Criar Produto</a></button>
         </div>
     </header>
     <main>
@@ -32,23 +33,23 @@
             @if (count($products) == false)
                 <p class="noProduct">Nenhum Produto Cadastrado</p>
             @else
-            @foreach($products as $product)
-                <div class="table-content">
-                    <p>#0001</p>
-                    <p>{{$product->name}}</p>
-                    <p>R$ {{$product->price}}</p>
-                    <p>{{ $product->stock }}</p>
-                    <p>{{ $product->category_id }} </p>
-                    <p>
-                        <a href="{{ route('product.edit', $product->id) }}">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                        <a href="{{ route('product.destroy', $product->id) }}">
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
-                </div>
-            @endforeach
-@endif
+                @foreach ($products as $product)
+                    <div class="table-content">
+                        <p>#{{ $product->id }}</p>
+                        <p>{{ $product->name }}</p>
+                        <p>R$ {{ $product->price }}</p>
+                        <p>{{ $product->stock }}</p>
+                        <p>{{ $product->category_id }} </p>
+                        <p>
+                            <a href="{{ route('product.edit', $product->id) }}">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="{{ route('product.destroy', $product->id) }}">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                    </div>
+                @endforeach
+            @endif
         </div>
     </main>
 

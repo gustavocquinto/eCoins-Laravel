@@ -11,10 +11,6 @@ class CategoryController extends Controller
 
     public function index(){
         $categories = Category::all();
-        foreach($categories as $category){
-            $category->products();
-            dd($category);
-        }
         return view('/category/index')->with(['categories' => Category::all()]);
     }
 

@@ -24,7 +24,6 @@
             <div class="table-content">
                 <p>ID</p>
                 <p>Nome da Categoria</p>
-                <p>Numero de Produtos</p>
                 <p>Ações</p>
             </div>
             @if (count($categories) == false)
@@ -34,7 +33,7 @@
                 <div class="table-content">
                     <p>{{$category->id}}</p>
                     <p>{{$category->name}}</p>
-                    <p>{{$category}}</p>
+
                     <p>
                         <a href="{{ route('product.edit', $category->id) }}">
                             <i class="fas fa-edit"></i>

@@ -18,8 +18,11 @@
         </div>
     </header>
     <main>
-        <h1>Resultado da Busca</h1>
+        <h1>Produtos</h1>
         <section class="products">
+            @if (count($products) == false)
+            <p class="noProduct">Nenhum Produto Cadastrado</p>
+            @else
             @foreach($products as $product)
             <div class="card">
                 <div class="imgBox">
@@ -37,6 +40,7 @@
             </div>
             @endforeach
         </section>
+        @endif
     </main>
-    @include('components.footer')
+
 </body>
