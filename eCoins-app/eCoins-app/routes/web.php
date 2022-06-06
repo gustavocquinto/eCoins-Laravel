@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\CartController;
 
 
 /*
@@ -41,8 +42,15 @@ Route::middleware(['admin'])->group(function(){
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 
+//ROTAS DO CLIENTE;
+Route::middleware(['client'])->group(function(){
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+    Route::get('detail/{id}', [WelcomeController::class, 'detail'])->name('detail');
+    Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
+    Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
+});
 
-Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
-Route::get('detail/{id}', [WelcomeController::class, 'detail'])->name('detail');
+
 
 require __DIR__.'/auth.php';
