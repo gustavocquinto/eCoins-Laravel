@@ -29,20 +29,27 @@
             @if (count($categories) == false)
                 <p class="noProduct">Nenhuma Categoria Cadastrado</p>
             @else
-            @foreach($categories as $category)
-                <div class="table-content">
-                    <p>{{$category->id}}</p>
-                    <p>{{$category->name}}</p>
+            <table>
+                <tr>
+                  <th>ID</th>
+                  <th>Nome da Categoria</th>
+                    <th>Ações</th>
+                </tr>
+                @foreach ($categories as $category)
+                <tr>
+                  <td>#{{$category->id}}</td>
+                    <td>{{$category->name}}</td>
 
-                    <p>
+                    <td class="actions">
                         <a href="{{ route('product.edit', $category->id) }}">
                             <i class="fas fa-edit"></i>
                         </a>
                         <a href="{{ route('product.destroy', $category->id) }}">
                             <i class="fas fa-trash-alt"></i>
                         </a>
-                </div>
-            @endforeach
+                    </td>
+                </tr>
+                @endforeach
 @endif
         </div>
     </main>

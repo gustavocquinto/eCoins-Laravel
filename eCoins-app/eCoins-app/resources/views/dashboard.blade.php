@@ -21,7 +21,7 @@
                             alt="Foto do usuário(a) {{ Auth::user()->name }}" title="Foto do usuário(a) {{ Auth::user()->name }}">
                     </div>
                     <div class="userInfo-text">
-                        <h1>Bem-vinde, {{ Auth::user()->name }}</h1>
+                        <h1>Bem-vindo, {{ Auth::user()->name }}</h1>
                         <p>{{ Auth::user()->email }}</p>
                         <p>Telefone: {{ Auth::user()->tel }}</p>
                         <p>
