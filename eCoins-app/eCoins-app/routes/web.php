@@ -25,7 +25,9 @@ Route::get('/dashboard', function () {
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
+//ROTAS DOS ADMINISTRADORES
 Route::middleware(['admin'])->group(function(){
     Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
     Route::post('/product/create', [ProductController::class, 'store'])->name('product.store');
@@ -42,14 +44,16 @@ Route::middleware(['admin'])->group(function(){
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 
-//ROTAS DO CLIENTE;
+//ROTAS DOS CLIENTES;
 Route::middleware(['client'])->group(function(){
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-    Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
-    Route::get('detail/{id}', [WelcomeController::class, 'detail'])->name('detail');
     Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
     Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
 });
+
+//ROTAS DOS GUESTS(CONVIDADOS)
+
+Route::get('detail/{id}', [WelcomeController::class, 'detail'])->name('detail');
 
 
 
