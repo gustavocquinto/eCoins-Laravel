@@ -23,7 +23,7 @@
                     </div>
                   </div>
                   @endif
-                  <li><a>Carrinho</a></li>
+                  <li><a href="{{ route('cart.index') }}">Carrinho</a></li>
                   <div class="dropdown">
                     <li><a class="active">Oi, {{ Auth::user()->name }}</a></li>
                     <div class="dropdown-content">

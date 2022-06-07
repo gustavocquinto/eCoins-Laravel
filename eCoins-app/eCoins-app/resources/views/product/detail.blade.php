@@ -27,8 +27,12 @@
                 <p>{{ $products['description'] }}</p>
                 <p>R$ <span>{{ $products['price'] }}</span></p>
                 <div class="buttons-product">
-                    <button type="submit">Adicionar ao carrinho</button>
-                    <button type="submit">Comprar agora</button>
+                    <form method="POST" action="{{route('cart.store', $products)}}">
+                        @csrf
+                        <p color="style:green;"> {{session()->get('sucess')}} </p>
+                        <button type="submit">Adicionar ao carrinho</button>
+                        <button type="submit">Comprar agora</button>
+                    </form>
                 </div>
             </div>
 

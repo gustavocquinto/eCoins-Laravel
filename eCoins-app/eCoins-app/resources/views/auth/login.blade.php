@@ -14,6 +14,7 @@
     <main>
         <div class="container-login">
             <div class="login-text">
+                <p style="color: red; font-size: 20px; font-shadow: 2px 2px 3px black;"> {{session()->get('notLoggedIn')}} </p>
                 <h1 class="login-h1">ECOIN - LOGIN</h1>
                 <p class="login-p">Insira suas Credenciais</p>
                 <!-- Session Status -->
