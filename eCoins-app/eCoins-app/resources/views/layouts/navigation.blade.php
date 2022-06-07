@@ -10,7 +10,7 @@
             @auth
             <div class="search-container">
                 <form action="/search">
-                  <input type="text" id="query" placeholder="Pesquise Algo..." name="query">
+                  <input type="text" id="query" placeholder="Pesquise Algo..." name="query" required>
                   <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
               </div>
@@ -37,7 +37,7 @@
             @else
                 <div class="search-container">
                     <form action="/search">
-                      <input type="text" id="query" placeholder="Pesquise Algo..." name="query">
+                      <input type="text" id="query" placeholder="Pesquise Algo..." name="query" minlength="3" maxlength="69" required>
                       <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                   </div>

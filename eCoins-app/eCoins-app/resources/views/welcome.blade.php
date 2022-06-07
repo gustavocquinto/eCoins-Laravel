@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index - ECOIN</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick-theme.css" />
+
+
 
 </head>
+
 <body>
     <header>
         @include('layouts.navigation')
@@ -19,28 +24,42 @@
     </header>
     <main>
         <h1>Produtos</h1>
-        <section class="products">
-            @if (count($products) == false)
-            <p class="noProduct">Nenhum Produto Cadastrado</p>
+          @if (count($products) == false)
+                <p class="noProduct">Nenhum Produto Cadastrado</p>
             @else
-            @foreach($products as $product)
-            <div class="card">
-                <div class="imgBox">
-                    @if($product->image)
-                    <img src="{{ asset($product->image) }}" alt="{{$product->name}}" class="product">
-                    @else
-                    <img src="{{ asset('images/404.png') }}" alt="Imagem não encontrada" class="product" title="Imagem não encontrada">
-                    @endif
-                </div>
-                <div class="contentBox">
-                    <h3>{{$product['name']}}</h3>
-                    <h2 class="price">R$ {{$product['price']}}</h2>
-                    <a href="detail/{{$product['id']}}" class="buy">Comprar</a>
-                </div>
-            </div>
+        <div class="products">
+                    @foreach ($products as $product)
+                        <div class="card">
+                            <div class="imgBox">
+                                @if ($product->image)
+                                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="product">
+                                @else
+                                    <img src="{{ asset('images/404.png') }}" alt="Imagem não encontrada" class="product" title="Imagem não encontrada">
+                                @endif
+                            </div>
+                            <div class="contentBox">
+                                <h3>{{ $product['name'] }}</h3>
+                                <h2 class="price">R$ {{ $product['price'] }}</h2>
+                                <a href="detail/{{ $product['id'] }}" class="buy">Comprar</a>
+                            </div>
+                        </div>
             @endforeach
-        </section>
+
+        </div>
         @endif
     </main>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
+    <script type="text/javascript">
+        $('.products').slick({
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            variableWidth: true,
+            variableHeight: true,
+            autoplay: true,
+            autoplaySpeed: 2000,
+        });
+    </script>
 </body>
