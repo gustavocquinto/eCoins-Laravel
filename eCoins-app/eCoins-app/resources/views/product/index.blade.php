@@ -15,6 +15,7 @@
         <div class="main-div">
             <h1>Produtos</h1>
             <p>Verifique todos os produtos cadastrados no site.</p>
+            <p style="color: red; font-shadow: 3px 2x 3x black;"> {{session()->get('noAccess')}} </p>
             <button type="submit"><a href="{{route('product.create')}}">Criar Produto</a></button>
         </div>
     </header>

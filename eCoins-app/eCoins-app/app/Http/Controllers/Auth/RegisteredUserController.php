@@ -44,6 +44,8 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'tel' => $request->tel,
+            'client' => 1,
+            'admin' => 0,
             'password' => Hash::make($request->password),
         ]);
 

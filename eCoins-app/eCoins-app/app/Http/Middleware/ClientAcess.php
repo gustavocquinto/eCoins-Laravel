@@ -18,7 +18,11 @@ class ClientAcess
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check() && Auth::user()->client){
-            dd('você é um cliente');
+            return $next($request);
+        }
+        else{
+            session()->flash('notLoggedIn', 'Você necessita estar logado para realizar essa ação.');
+            return redirect('login');
         }
     }
 }

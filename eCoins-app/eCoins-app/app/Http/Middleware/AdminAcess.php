@@ -22,8 +22,8 @@ class AdminAcess
             return $next($request);
         }
         else {
-            session()->flash('noAccess', 'Você não tem acesso a está página');
-            return redirect(route('index'));
+            session()->flash('noAccess', 'Você não tem acesso a está página.');
+            return redirect(route('product.index'));
         }
 
     }
