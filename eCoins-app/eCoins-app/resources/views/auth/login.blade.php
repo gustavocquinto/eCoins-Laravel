@@ -24,8 +24,8 @@
 
                 <form class="login-form" method="POST" action="{{ route('login') }}">
                     @csrf
-                    <input type="email" name="email" :value="old('email')" required autofocus />
-                    <input type="password" name="password" required autocomplete="current-password">
+                    <input type="email" name="email" :value="old('email')" placeholder="Digite o seu email" required autofocus />
+                    <input type="password" name="password" placeholder="Digite a sua senha" required autocomplete="current-password">
                     <button type="submit">{{ __('Entrar') }}</button>
                 </form>
                 @if (Route::has('password.request'))

@@ -16,4 +16,9 @@ class WelcomeController extends Controller
         $data = Product::find($id);
         return view('product.detail', ['products' => $data]);
     }
+
+    function search(Request $req){
+       $data = Product::where('name', 'like', '%'.$req->input('query').'%')->get();
+       return view('product.search', ['products' => $data]);
+    }
 }

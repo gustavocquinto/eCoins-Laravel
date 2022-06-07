@@ -22,12 +22,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
 //ROTAS DOS ADMINISTRADORES
+
 Route::middleware(['admin'])->group(function(){
     Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
     Route::post('/product/create', [ProductController::class, 'store'])->name('product.store');
@@ -40,9 +43,11 @@ Route::middleware(['admin'])->group(function(){
     Route::get('/category/destroy/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
     Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
 
+    Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+    Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+
 });
-Route::get('/product', [ProductController::class, 'index'])->name('product.index');
-Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+
 
 //ROTAS DOS CLIENTES;
 Route::middleware(['client'])->group(function(){
@@ -54,6 +59,8 @@ Route::middleware(['client'])->group(function(){
 //ROTAS DOS GUESTS(CONVIDADOS)
 
 Route::get('detail/{id}', [WelcomeController::class, 'detail'])->name('detail');
+Route::get('search', [WelcomeController::class, 'search'])->name('search');
+
 
 
 

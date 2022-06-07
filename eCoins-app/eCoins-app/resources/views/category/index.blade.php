@@ -1,39 +1,58 @@
-@extends("layouts.app")
-@section("content")
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Produto</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
 
-<img style="width:100px" src="https://previews.123rf.com/images/ionutparvu/ionutparvu1612/ionutparvu161200410/67602131-categories-stamp-sign-text-word-logo-red-.jpg"><h1> ESTE É O INDEX DE CATEGORIA </h1>
-<div>
-    {{session()->get('sucess')}}
+<body>
+    <header>
+        @include('layouts.navigation')
+        <div class="main-div">
+            <h1>Categorias</h1>
+            <p>Verifique e crie novas categorias no site.</p>
+            <button type="submit"><a href="{{route('category.create')}}">Criar Categoria</a></button>
+        </div>
+    </header>
+    <main>
 
-</div>
-<div class="d-flex flex-row-reverse bd-highlight">
-    <a class="btn btn-primary" href="{{route('category.create')}}" role="button">CRIAR CATEGORIA</a>
-  </div>
+        <div class="table-container">
+            <div class="table-content">
+                <p>ID</p>
+                <p>Nome da Categoria</p>
+                <p>Ações</p>
+            </div>
+            @if (count($categories) == false)
+                <p class="noProduct">Nenhuma Categoria Cadastrado</p>
+            @else
+            <table>
+                <tr>
+                  <th>ID</th>
+                  <th>Nome da Categoria</th>
+                    <th>Ações</th>
+                </tr>
+                @foreach ($categories as $category)
+                <tr>
+                  <td>#{{$category->id}}</td>
+                    <td>{{$category->name}}</td>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th> Nome da categoria </td>
-            <th> Adicionada em </td>
-        </tr>
-    </thead>
-    <tbody>
-        @if(count($categories) == false)
-            <tr>
-                <td class="text-center" style="color:red;"> Não há categorias registradas</td>
-            </tr>
-        @else
+                    <td class="actions">
+                        <a href="{{ route('product.edit', $category->id) }}">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="{{ route('product.destroy', $category->id) }}">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+                @endforeach
+@endif
+        </div>
+    </main>
 
-            @foreach($categories as $category)
-            <tr>
-                <td> {{$category->name}} </td>
-                <td> {{$category->created_at}} </td>
-                <td><a href="{{route('category.edit', $category->id)}}" class="btn btn-secondary"> Editar </a> </td>
-                <td><a href="{{route('category.destroy', $category->id)}}" class="btn btn-danger"> Apagar </a> </td>
-            </tr>
-            @endforeach
-        @endif
 
-    </tbody>
-</table>
-@endsection
+</body>

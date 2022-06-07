@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,36 +21,37 @@
         </div>
     </header>
     <main>
-
-        <div class="table-container">
-            <div class="table-content">
-                <p>ID</p>
-                <p>Nome do Produto</p>
-                <p>Valor</p>
-                <p>Quantidade</p>
-                <p>Categoria</p>
-                <p>Ações</p>
-            </div>
             @if (count($products) == false)
                 <p class="noProduct">Nenhum Produto Cadastrado</p>
             @else
-            @foreach($products as $product)
-                <div class="table-content">
-                    <p>#0001</p>
-                    <p>{{$product->name}}</p>
-                    <p>R$ {{$product->price}}</p>
-                    <p>{{ $product->stock }}</p>
-                    <p>{{ $product->category_id }} </p>
-                    <p>
+            <table>
+                <tr>
+                  <th>ID</th>
+                  <th>Imagem</th>
+                  <th>Nome Produto</th>
+                  <th>Valor</th>
+                  <th>Quantidade</th>
+                  <th>Ações</th>
+                </tr>
+                @foreach ($products as $product)
+                <tr>
+                  <td>#{{$product->id}}</td>
+                    <td><img src="{{asset($product->image)}}" alt="Produto 1" /></td>
+                    <td>{{$product->name}}</td>
+                    <td>R$ {{$product->price}}</td>
+                    <td>{{$product->stock}}</td>
+                    <td class="actions">
                         <a href="{{ route('product.edit', $product->id) }}">
                             <i class="fas fa-edit"></i>
                         </a>
                         <a href="{{ route('product.destroy', $product->id) }}">
                             <i class="fas fa-trash-alt"></i>
                         </a>
-                </div>
-            @endforeach
-@endif
+                    </td>
+                </tr>
+                @endforeach
+              </table>
+            @endif
         </div>
     </main>
 
