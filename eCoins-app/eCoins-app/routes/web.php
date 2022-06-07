@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PerfilController;
 
 
 /*
@@ -22,10 +23,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+
 
 //ROTAS DOS ADMINISTRADORES
 Route::middleware(['admin'])->group(function(){
@@ -40,21 +38,24 @@ Route::middleware(['admin'])->group(function(){
     Route::get('/category/destroy/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
     Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
 
+
+
 });
-Route::get('/product', [ProductController::class, 'index'])->name('product.index');
-Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 
 //ROTAS DOS CLIENTES;
 Route::middleware(['client'])->group(function(){
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
     Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
+    Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil.index');
+    Route::post('/perfil', [PerfilController::class, 'edit'])->name('perfil.edit');
 });
 
 //ROTAS DOS GUESTS(CONVIDADOS)
 
 Route::get('detail/{id}', [WelcomeController::class, 'detail'])->name('detail');
-
-
+Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
 require __DIR__.'/auth.php';

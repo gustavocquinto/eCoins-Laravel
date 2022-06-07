@@ -47,6 +47,7 @@ class RegisteredUserController extends Controller
             'client' => 1,
             'admin' => 0,
             'password' => Hash::make($request->password),
+            'image' => 'storage/User/logo.png'
         ]);
 
         event(new Registered($user));
