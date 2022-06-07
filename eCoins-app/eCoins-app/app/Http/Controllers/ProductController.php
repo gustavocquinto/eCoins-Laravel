@@ -37,8 +37,10 @@ class ProductController extends Controller
         return redirect(route('product.index'));
     }
 
-    public function edit(Product $product){
-        return view('product.edit')->with('product', $product);
+    public function edit(Product $product, Category $categories){
+
+        return view('product.edit')->with(['products'=> $product,
+                                            'categories'=> Category::all()]);
     }
 
     public function update(Product $product, Request $request){
@@ -61,8 +63,6 @@ class ProductController extends Controller
                 'stock' => $request->stock,
                 'category_id' => $request->category_id,
             ]);
-
-        $product->Tags()->sync($request->tags);
         session()->flash('success','Produto Editado com Sucesso!');
         return redirect(route('product.index'));
     }

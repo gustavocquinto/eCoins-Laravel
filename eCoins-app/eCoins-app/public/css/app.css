@@ -9,6 +9,14 @@
     box-sizing: border-box;
 }
 
+* > h1, h2, h3, button, p, label, a, button, td, th{
+
+    text-shadow: 1px 2px 2px black;
+}
+
+
+
+
 body {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
         url(../images/League-of-Legends-Wallpaper-Full-HD-1920x1080.webp);

@@ -34,4 +34,10 @@ class CategoryController extends Controller
         return view('/category/edit')->with('category', $category);
     }
 
+    public function update(Category $category, Request $request){
+        $category->update($request->all());
+        session()->flash('sucess', 'Categoria editada com sucesso.');
+        return redirect (route('category.index'));
+    }
+
 }
