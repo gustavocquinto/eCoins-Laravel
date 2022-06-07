@@ -42,5 +42,7 @@ Route::middleware(['admin'])->group(function(){
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('detail/{id}', [WelcomeController::class, 'detail'])->name('detail');
+Route::get('search', [WelcomeController::class, 'search'])->name('search');
+
 
 require __DIR__.'/auth.php';

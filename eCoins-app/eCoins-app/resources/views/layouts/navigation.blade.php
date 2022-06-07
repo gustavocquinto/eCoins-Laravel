@@ -8,14 +8,18 @@
     <ul>
         @if (Route::has('login'))
             @auth
+            <div class="search-container">
+                <form action="/search">
+                  <input type="text" id="query" placeholder="Pesquise Algo..." name="query">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+              </div>
                     @if(Auth::user()->admin == 1)
                     <div class="dropdown">
                     <li><a class="">Painel do Administrador</a></li>
                     <div class="dropdown-content">
                         <p><a href="{{ route('product.index') }}" class="">Produtos</a></p>
                         <p><a href="{{ route('category.index') }}" class="">Categorias</a></p>
-
-                        </form>
                     </div>
                   </div>
                   @endif
@@ -31,6 +35,12 @@
                     </div>
                   </div>
             @else
+                <div class="search-container">
+                    <form action="/search">
+                      <input type="text" id="query" placeholder="Pesquise Algo..." name="query">
+                      <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                  </div>
                 <li><a>Carrinho</a></li>
                 <li><a href="{{ route('login') }}" class="">Entrar</a></li>
             @endauth

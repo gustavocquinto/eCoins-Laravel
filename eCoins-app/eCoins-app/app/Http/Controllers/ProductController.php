@@ -18,7 +18,7 @@ class ProductController extends Controller
     }
 
     public function store(Request $request){
-        $image = "/storage/".$request->file('image')->store('itens');
+        $image = "/storage/".$request->file('image')->store('itens'); //salva a imagem no storage e retorna o caminho
         $product = Product::create([ //cria um novo produto no banco de dados com os dados do formulário e o caminho da imagem salva no storage no banco de dados
             'name' => $request->name,
             'description' => $request->description,
