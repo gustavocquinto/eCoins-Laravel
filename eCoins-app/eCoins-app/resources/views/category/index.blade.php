@@ -33,13 +33,12 @@
                 <tr>
                   <th>ID</th>
                   <th>Nome da Categoria</th>
-                    <th>Ações</th>
+                  <th>Ações</th>
                 </tr>
                 @foreach ($categories as $category)
                 <tr>
                   <td>#{{$category->id}}</td>
                     <td>{{$category->name}}</td>
-
                     <td class="actions">
                         <a href="{{ route('product.edit', $category->id) }}">
                             <i class="fas fa-edit"></i>

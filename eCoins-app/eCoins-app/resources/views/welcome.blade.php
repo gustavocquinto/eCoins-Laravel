@@ -21,10 +21,6 @@
     <main>
         <h1>Produtos</h1>
         @include('components.game-card')
-        <h1>Produtos</h1>
-        @include('components.game-card')
-        <h1>Produtos</h1>
-        @include('components.game-card')
     </main>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -32,12 +28,7 @@
 
     <script type="text/javascript">
         $('.products').slick({
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            variableWidth: true,
-            variableHeight: true,
-            autoplay: true,
-            autoplaySpeed: 2000,
+         
         });
     </script>
 </body>
