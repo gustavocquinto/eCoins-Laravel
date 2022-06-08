@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PerfilController;
 
 
 /*
@@ -24,11 +25,6 @@ Route::get('/dashboard', function () {
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
-
 //ROTAS DOS ADMINISTRADORES
 
 Route::middleware(['admin'])->group(function(){
@@ -47,14 +43,17 @@ Route::middleware(['admin'])->group(function(){
     Route::get('/product', [ProductController::class, 'index'])->name('product.index');
     Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 
-});
 
+
+});
 
 //ROTAS DOS CLIENTES;
 Route::middleware(['client'])->group(function(){
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
     Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
+    Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil.index');
+    Route::post('/perfil', [PerfilController::class, 'edit'])->name('perfil.edit');
 });
 
 //ROTAS DOS GUESTS(CONVIDADOS)
@@ -64,5 +63,8 @@ Route::get('search', [WelcomeController::class, 'search'])->name('search');
 
 
 
+Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
 require __DIR__.'/auth.php';
