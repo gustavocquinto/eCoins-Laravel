@@ -10,7 +10,7 @@ class PerfilController extends Controller
 {
     //
     public function index(){
-            return view('user.index');
+            return view('dashboard');
     }
 
     public function edit(Request $request){
@@ -29,7 +29,7 @@ class PerfilController extends Controller
             'image' => $path,
             'tel' => $request->tel,
         ]);
-        session()->flash('sucess', 'Perfil salvo com sucesso :D');
+        session()->flash('sucess', 'Perfil salvo com sucesso.');
         return redirect()->back();
     }
 

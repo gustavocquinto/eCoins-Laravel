@@ -1,10 +1,10 @@
-<nav>
+<nav style="box-shadow: 2px 3px 4px black;">
     <input type="checkbox" id="check">
     <label for="check" class="checkbtn">
         <i class="fas fa-bars"></i>
     </label>
 
-    <a href="{{ url('/') }}"><label class="logo">ECOIN</label></a>
+    <a href="{{ url('/') }}"><label class="logo">ECOINS</label></a>
     <ul>
         @if (Route::has('login'))
             @auth
