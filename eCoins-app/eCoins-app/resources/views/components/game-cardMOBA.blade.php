@@ -3,6 +3,7 @@
     <p class="noProduct">Nenhum Produto Encontrado.</p>
     @else
     @foreach($products as $product)
+    @if($product->category_id == 22)
     <div class="card">
         <div class="imgBox">
             @if($product->image)
@@ -17,7 +18,7 @@
             <a href="detail/{{$product['id']}}" class="buy">Ver mais</a>
         </div>
     </div>
+    @endif
     @endforeach
 </div>
 @endif
-

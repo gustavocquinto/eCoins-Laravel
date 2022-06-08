@@ -9,6 +9,47 @@
     box-sizing: border-box;
 }
 
+* > h1, h2, h3, button, p, label, a, button, td, th{
+
+    text-shadow: 1px 2px 2px black;
+}
+
+* > input {
+    border-radius: 3px;
+    background: transparent;
+    border: 1px solid;
+    border-color: orange;
+}
+
+.footer{
+    height: 270px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333547;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: -5px -3px 5px black;
+    margin-top: 80px;
+    }
+    .footer-content{
+        width: 28.88%;
+        color: white;
+        padding: 44px 101px;
+
+    }
+
+    .footer-content-title{
+        font-size: 25px;
+        margin-bottom: 44px;
+    }
+
+    .footer-content-item{
+        font-size: 25px;
+    }
+
+
+
+
 body {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
         url(../images/League-of-Legends-Wallpaper-Full-HD-1920x1080.webp);

@@ -17,17 +17,30 @@
             <section class="userInfo">
                 <div class="userInfo-container">
                     <div class="userInfo-img">
-                        <img src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg"
+                        <form method="POST" action="{{route('perfil.edit')}}" enctype="multipart/form-data">
+                            @csrf
+                        <img src="{{asset(Auth::user()->image)}}"
                             alt="Foto do usuário(a) {{ Auth::user()->name }}" title="Foto do usuário(a) {{ Auth::user()->name }}">
+                        <br>
+                        <input name="image" type="file">
+
                     </div>
-                    <div class="userInfo-text">
-                        <h1>Bem-vindo, {{ Auth::user()->name }}</h1>
-                        <p>{{ Auth::user()->email }}</p>
-                        <p>Telefone: {{ Auth::user()->tel }}</p>
-                        <p>
-                            <a href="{{ url("#") }}" class="edit-profile">Editar Perfil</a>
-                        </p>
-                    </div>
+                    <br>
+                        <div class="userInfo-text">
+                            <p>Bem-vindo, {{ Auth::user()->name }}.</p>
+                            <br>
+                            <label style="display: block" for="name"> Nome: </label>
+                            <input name="name" type="text"  value="{{ Auth::user()->name }}">
+                            <label style="display: block" for="email"> Email: </label>
+                            <input name="email" type="text"  value="{{ Auth::user()->email }}">
+                            <label style="display: block" for="tel"> Telefone: </label>
+                            <input name="tel" type="text"  value="{{ Auth::user()->tel }}">
+                            <p>
+                                <button class="edit-profile" type="submit"> Atualizar perfil </button>
+                                <a style="color: green;" href="">{{session()->get('sucess')}} </a>
+                            </p>
+                        </div>
+                    </form>
                 </div>
             </section>
             <div class="details-order">
@@ -59,4 +72,5 @@
 
             </section>
         </main>
+        @include('layouts.footer')
 </body>

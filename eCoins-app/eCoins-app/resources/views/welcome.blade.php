@@ -21,6 +21,12 @@
     <main>
         <h1>Produtos</h1>
         @include('components.game-card')
+        <h1>Battle royale - coins</h1>
+        @include('components.game-cardBATTLE')
+        <h1>FPS - coins</h1>
+        @include('components.game-cardFPS')
+        <h1>MOBA - coins</h1>
+        @include('components.game-cardMOBA')
     </main>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -31,4 +37,5 @@
          
         });
     </script>
+    @include('layouts.footer')
 </body>
