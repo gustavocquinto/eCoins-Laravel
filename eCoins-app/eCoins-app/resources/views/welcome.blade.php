@@ -14,7 +14,7 @@
     <header>
         @include('layouts.navigation')
         <div class="main-video">
-            <h1>ECOIN - SUA LOJA PREFERIDA GAMER</h1>
+            <h1>ECOINS - SUA LOJA PREFERIDA GAMER</h1>
             <video src="images/valorant-video.mp4" id="vid" autoplay loop></video>
         </div>
     </header>
@@ -34,7 +34,7 @@
 
     <script type="text/javascript">
         $('.products').slick({
-         
+
         });
     </script>
     @include('layouts.footer')

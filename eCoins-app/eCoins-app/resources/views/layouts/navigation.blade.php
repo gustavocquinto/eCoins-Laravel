@@ -1,4 +1,3 @@
-<nav>
 <nav style="box-shadow: 2px 3px 4px black;">
     <input type="checkbox" id="check">
     <label for="check" class="checkbtn">
@@ -26,7 +25,7 @@
                   @endif
                   <li><a href="{{ route('cart.index') }}">Carrinho</a></li>
                   <div class="dropdown">
-                    <li><a class="active">Oi, {{ Auth::user()->name }}</a></li>
+                    <li><a class="active">Olá, {{ Auth::user()->name }}</a></li>
                     <div class="dropdown-content">
                         <p><a href="{{ route('perfil.index') }}" class="">Meu Perfil</a></p>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
