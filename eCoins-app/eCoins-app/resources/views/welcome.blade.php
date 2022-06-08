@@ -19,6 +19,8 @@
         </div>
     </header>
     <main>
+        <h1>Produtos</h1>
+        @include('components.game-card')
         <h1>Battle royale - coins</h1>
         @include('components.game-cardBATTLE')
         <h1>FPS - coins</h1>
@@ -32,12 +34,7 @@
 
     <script type="text/javascript">
         $('.products').slick({
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            variableWidth: true,
-            variableHeight: true,
-            autoplay: true,
-            autoplaySpeed: 2000,
+         
         });
     </script>
     @include('layouts.footer')

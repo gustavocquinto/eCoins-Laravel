@@ -57,7 +57,6 @@ Route::middleware(['client'])->group(function(){
 });
 
 //ROTAS DOS GUESTS(CONVIDADOS)
-
 Route::get('detail/{id}', [WelcomeController::class, 'detail'])->name('detail');
 Route::get('search', [WelcomeController::class, 'search'])->name('search');
 

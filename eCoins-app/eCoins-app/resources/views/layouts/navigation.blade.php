@@ -1,3 +1,4 @@
+<nav>
 <nav style="box-shadow: 2px 3px 4px black;">
     <input type="checkbox" id="check">
     <label for="check" class="checkbtn">
