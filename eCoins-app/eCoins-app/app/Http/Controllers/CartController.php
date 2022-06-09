@@ -53,6 +53,7 @@ class CartController extends Controller
             $cart->update([
                 'units' => $cart->units - 1
             ]);
+            session()->flash('quantRemove', 'O produto ('.$product->name.') foi atualizado.');
         }
         else{
             $cart->delete();

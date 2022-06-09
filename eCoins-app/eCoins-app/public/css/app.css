@@ -9,17 +9,7 @@
     box-sizing: border-box;
 }
 
-* > h1, h2, h3, button, p, label, a, button, td, th{
 
-    text-shadow: 1px 2px 2px black;
-}
-
-* > input {
-    border-radius: 3px;
-    background: transparent;
-    border: 1px solid;
-    border-color: orange;
-}
 
 .footer{
     height: 270px;
@@ -30,7 +20,9 @@
     text-shadow: 2px 2px 2px black;
     box-shadow: -5px -3px 5px black;
     margin-top: 80px;
+
     }
+
     .footer-content{
         width: 28.88%;
         color: white;
@@ -44,7 +36,7 @@
     }
 
     .footer-content-item{
-        font-size: 25px;
+        font-size: 13px;
     }
 
 
@@ -161,6 +153,33 @@ body {
 
 .login-image img:hover {
     padding-left: 5px;
+}
+
+.inputEdit{
+    width: 40%;
+    height: 45px;
+    background: #f5f7f9;
+    color: black;
+    border: 1px solid #f77e09;
+    border-radius: 5px;
+    margin-top: 3%;
+    text-indent: 10px;
+    transition: 0.1s;
+    margin-left: 1%;
+}
+
+.edit-container-category{
+    display: flex;
+    flex-direction: column;
+    margin-top: 4%;
+    color: #f5f7f9;
+    background-color: #333547;
+    width: 700px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* INICIO DO INDEX */
@@ -341,6 +360,30 @@ ul a:hover {
     border:rgba(247, 126, 9, 1) solid 2px;
   }
 
+  .formButton{
+    width: 150px;
+    height: 45px;
+    left: 167px;
+    top: 646px;
+    background: #f77e09;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+    transition: 0.3s;
+    font-size: 20px;
+    margin-left: 1%;
+  }
+
+    .formButton:hover{
+        background: #f77e09;
+        opacity: 0.8;
+        color: white;
+        transition: 0.3s;
+        cursor: pointer;
+
+
+    }
+
   .edit-profile{
     position: relative;
     left: 740px;
@@ -348,7 +391,10 @@ ul a:hover {
     color: white;
     padding: 7px;
     border-radius: 5px;
-    }
+}
+
+
+
 
   summary{
     display: flex;
@@ -382,6 +428,7 @@ ul a:hover {
     display: flex;
     flex-direction: column;
     margin-left: 15px;
+    margin-bottom: 15px;
   }
 
   .summary-content-text h1{
@@ -393,7 +440,8 @@ ul a:hover {
 
   .summary-content-text p{
     font-size: 1em;
-    padding: 0px;
+    padding-bottom: 15px;
+
   }
 
 
@@ -436,10 +484,12 @@ ul a:hover {
 }
 
 .main-video h1 {
-    color: white;
+    color: #f77e09;
     position: absolute;
-    top: 20%;
-    left: 10%;
+    top: 25%;
+    left: 20%;
+    font-size: 5em;
+
 }
 .main-div button{
     background-color: #f77e09;
@@ -480,12 +530,29 @@ main h1:nth-child(1) {
 }
 
 .products {
-    max-width: 70vw;
+    max-width: 95vw;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-wrap: wrap;
 }
+
+.slick-slide {
+    width: 50vw;
+    box-sizing: border-box;
+}
+
+.slick-prev:before {
+    content: "<";
+    color: red;
+    font-size: 30px;
+  }
+
+  .slick-next:before {
+    content: ">";
+    color: red;
+    font-size: 30px;
+  }
 
 .table-container{
     background-color: #333547;
@@ -515,6 +582,7 @@ main h1:nth-child(1) {
     margin-left: 15px;
     border:rgba(247, 126, 9, 1) solid 2px;
 }
+
 
 .cartMain{
     display: flex;
@@ -793,6 +861,7 @@ table th{
     margin-right: auto;
     text-align: center;
   }
+
 
   .edit-container{
     display: flex;

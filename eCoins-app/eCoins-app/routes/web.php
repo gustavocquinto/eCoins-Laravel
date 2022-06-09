@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\OrderController;
 
 
 /*
@@ -42,9 +43,6 @@ Route::middleware(['admin'])->group(function(){
 
     Route::get('/product', [ProductController::class, 'index'])->name('product.index');
     Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
-
-
-
 });
 
 //ROTAS DOS CLIENTES;
@@ -53,7 +51,9 @@ Route::middleware(['client'])->group(function(){
     Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
     Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
     Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil.index');
-    Route::post('/perfil', [PerfilController::class, 'edit'])->name('perfil.edit');
+    Route::post('/perfil/edit', [PerfilController::class, 'edit'])->name('perfil.edit');
+    Route::get('/perfil/edit', [PerfilController::class, 'Profile'])->name('perfil.edit');
+    Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 });
 
 //ROTAS DOS GUESTS(CONVIDADOS)

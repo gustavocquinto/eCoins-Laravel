@@ -28,9 +28,6 @@
                     <input type="password" name="password" placeholder="Digite a sua senha" required autocomplete="current-password">
                     <button type="submit">{{ __('Entrar') }}</button>
                 </form>
-                @if (Route::has('password.request'))
-                <p>Esqueceu sua senha? <a href="{{ route('password.request') }}">Recupere Aqui</a></p>
-                @endif
                 <p>Não tem uma conta? <a href="{{ route('register') }}">Registre-se</a></p>
             </div>
             <div class="login-image">

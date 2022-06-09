@@ -15,19 +15,14 @@
         <div class="main-div">
             <h1>Categorias</h1>
             <p>Verifique e crie novas categorias no site.</p>
+            <p style="margin-top: 10px; color: green; ">{{ session()->get('success') }}</p>
+            <p style="margin-top: 10px; color: red;">{{ session()->get('successD') }}</p>
             <p style="color: green; text-shadow: 1px 2px 3px black;">{{session()->get('sucess')}}</p>
             <button id="buttoncategory"type="submit"><a href="{{route('category.create')}}">Criar Categoria</a></button>
         </div>
     </header>
+
     <main>
-
-        <div class="table-container">
-
-            <div class="table-content">
-                <p>ID</p>
-                <p>Nome da Categoria</p>
-                <p>Ações</p>
-            </div>
             @if (count($categories) == false)
                 <p class="noProduct">Nenhuma Categoria Cadastrado</p>
             @else
@@ -54,6 +49,7 @@
 @endif
         </div>
     </main>
+
 
 
 </body>

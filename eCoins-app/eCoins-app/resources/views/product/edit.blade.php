@@ -5,15 +5,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adicionar produto</title>
+    <title>Editar Produto</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <header>
 @include('layouts.navigation')
 <div class="main-div">
-    <h1>Adicionar produto</h1>
-    <p>Adicione um novo Produto ao Ecoin! Verifique as informações antes de salvar.</p>
+    <h1>Editar {{$products->name}}</h1>
+    <p>Você está editando o Produto {{$products->name}}. Verifique as Informações antes de salvar</p>
   </div>
 </header>
 <main>
@@ -35,8 +35,7 @@
         </fieldset>
         <fieldset>
           <label for="description">Descrição</label>
-          <textarea name="description" id="description" cols="30" rows="10"
-          placeholder="{{$products->description}}" required></textarea>
+          <textarea name="description" id="description" cols="30" rows="10" minlength="1" maxlength="250" required>{{$products->description}}</textarea>
           <label for="category">Categoria:</label>
           <select name="category_id" id="category">
             @foreach($categories as $category)
@@ -44,7 +43,7 @@
             @endforeach
         </select>
         </fieldset>
-        <button type="submit">Salvar</button>
+        <button type="submit" class="formButton">Salvar</button>
       </form>
     </div>
   </div>

@@ -3,7 +3,7 @@
     <p class="noProduct">Nenhum Produto Encontrado.</p>
     @else
     @foreach($products as $product)
-    @if($product->category_id == 22)
+    @if($product->category_id == 3)
     <div class="card">
         <div class="imgBox">
             @if($product->image)
