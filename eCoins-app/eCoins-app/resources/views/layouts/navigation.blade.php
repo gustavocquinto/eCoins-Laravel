@@ -18,8 +18,8 @@
                     <div class="dropdown">
                     <li><a class="">Painel do Administrador</a></li>
                     <div class="dropdown-content">
-                        <p><a href="{{ route('product.index') }}" class="">Produtos</a></p>
-                        <p><a href="{{ route('category.index') }}" class="">Categorias</a></p>
+                        <p><a href="{{ route('product.index') }}" class="">Editar produtos</a></p>
+                        <p><a href="{{ route('category.index') }}" class="">Editar categorias</a></p>
                     </div>
                   </div>
                   @endif

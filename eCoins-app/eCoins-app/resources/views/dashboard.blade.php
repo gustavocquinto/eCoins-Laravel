@@ -61,7 +61,7 @@
                         <p>#{{$pedido->order_id}}</p>
                         <p>{{$pedido->created_at}}</p>
                         <p>{{$pedido->state}}</p>
-                        <p>{{$pedido->price}}</p>
+                        <p>{{number_format($pedido->price * $pedido->units, 2, '.', ' ')}}</p>
                     </summary>
                     <div class="summary-content">
                             <img src="{{asset($pedido->productImage)}}">
@@ -69,7 +69,7 @@
                             <h1>{{$pedido->name}}</h1>
                             <p style="max-width:580px">Descrição do Produto: {{$pedido->description}}</p>
                             <p> Quantidade: {{$pedido->units}} </p>
-                            <p>Valor: {{$pedido->price}} </p>
+                            <p>Valor unidade: {{number_format($pedido->price, 2, '.', ' ')}} </p>
                         </div>
                     </div>
                 </details>

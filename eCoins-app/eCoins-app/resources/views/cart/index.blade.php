@@ -26,7 +26,7 @@
                </div>
                <?php $total = 0.0 ?>
                 @foreach($itens as $item)
-                <p>{{$item->Product->name}} - <span>R$ {{$item->Product->price * $item->units}}</span> </p>
+                <p>{{$item->Product->name}} - <span>R$ {{number_format($item->Product->price * $item->units, 2, '.', ' ')}}</span> </p>
                 <hr style="padding-bottom: 1px; margin-bottom: 20px">
                 <?php $total += $item->Product->price * $item->units ?>
                 @endforeach
@@ -46,6 +46,7 @@
            </aside>
         @if (count($itens) == false)
         <p style="text-align: center;" class="noProduct">Parece que você ainda não tem nenhum produto no seu carrinho :( </p>
+        <a class="noProduct" href="{{route('product.index')}}"> Ver produtos </a>
         @else
         <table class="table-cart">
             <tr>
@@ -59,7 +60,7 @@
             <tr>
                 <td><img src="{{asset($item->Product->image)}}" alt="Produto 1" /></td>
                 <td>{{$item->Product->name}}</td>
-                <td>R$ {{$item->Product->price}}</td>
+                <td>R$ {{number_format($item->Product->price, 2, '.', ' ')}}</td>
                 <td> <form action="{{route('cart.store', $item->Product->id) }}" method="POST" style="display:inline">
                     @csrf
                     <button type="submit" class="btn btn-primary btn-sm">+</button>
@@ -71,7 +72,7 @@
                     <button type="submit" class="btn btn-primary btn-sm">-</button>
                 </form>
             </td>
-                <td>R$ {{$item->Product->price * $item->units}}</td>
+                <td>R$ {{number_format($item->Product->price * $item->units, 2, '.', ' ')}}</td>
             </tr>
             @endforeach
           </table>

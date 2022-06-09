@@ -20,13 +20,13 @@ class CategoryController extends Controller
 
     public function store(Request $request, Category $category){
         Category::create($request->all());
-        session()->flash('success', 'Categoria adicionada com sucesso');
+        session()->flash('success', 'Categoria adicionada com sucesso.');
         return redirect(route('category.index'));
         }
 
     public function destroy(Category $category){
         $category->delete();
-        session()->flash('success', 'Produto deletado com sucesso');
+        session()->flash('successD', 'Produto deletado com sucesso.');
         return redirect(route('category.index'));
     }
 
