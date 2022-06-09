@@ -1,4 +1,4 @@
-<div class="footer">
+<footer class="footer">
     <div class="footer-content">
         <div class="footer-content-title">
             NAVEGUE PELO SITE
@@ -44,3 +44,4 @@
             Twitter
         </div>
     </div>
+</footer>

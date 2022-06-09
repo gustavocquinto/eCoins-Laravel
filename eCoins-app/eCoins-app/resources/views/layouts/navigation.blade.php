@@ -23,10 +23,10 @@
                     </div>
                   </div>
                   @endif
-                  <li><a href="{{ route('cart.index') }}">Carrinho</a></li>
-                  <div class="dropdown">
-                    <li><a class="active">Olá, {{ Auth::user()->name }}</a></li>
-                    <div class="dropdown-content">
+                    <li><a href="{{route('cart.index')}}">Carrinho</a></li>
+                    <div class="dropdown">
+                        <li><a class="active">Olá, {{ Auth::user()->name }}</a></li>
+                        <div class="dropdown-content">
                         <p><a href="{{ route('perfil.index') }}" class="">Meu Perfil</a></p>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
                             @csrf
@@ -41,7 +41,7 @@
                       <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                   </div>
-                <li><a>Carrinho</a></li>
+                <li><a href="{{route('cart.index')}}">Carrinho</a></li>
                 <li><a href="{{ route('login') }}" class="">Entrar</a></li>
             @endauth
         @endif

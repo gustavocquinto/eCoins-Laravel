@@ -48,29 +48,35 @@
                 <p>Data do Pedido</p>
                 <p>Status do Pedido</p>
                 <p>Valor Total</p>
-
             </div>
+            @if(count($pedidos) == false)
             <section class="orders">
+                <p> Você não tem nenhum pedido em andamento :( </p>
+            </section>
+            @else
+            <section class="orders">
+                @foreach($pedidos as $pedido)
                 <details>
                     <summary>
-                        <p>#001</p>
-                        <p>01/01/2020</p>
-                        <p>Concluido</p>
-                        <p>2000 Reais</p>
+                        <p>#{{$pedido->order_id}}</p>
+                        <p>{{$pedido->created_at}}</p>
+                        <p>{{$pedido->state}}</p>
+                        <p>{{$pedido->price}}</p>
                     </summary>
                     <div class="summary-content">
-                            <img src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg"
-                                alt="User" title="User">
+                            <img src="{{asset($pedido->productImage)}}">
                         <div class="summary-content-text">
-                            <h1>Nome do Produto</h1>
-                            <p>Descrição do Produto</p>
-                            <p>Quantidade: 1</p>
-                            <p>Valor: 2000 Reais</p>
+                            <h1>{{$pedido->name}}</h1>
+                            <p style="max-width:580px">Descrição do Produto: {{$pedido->description}}</p>
+                            <p> Quantidade: {{$pedido->units}} </p>
+                            <p>Valor: {{$pedido->price}} </p>
                         </div>
                     </div>
                 </details>
+                @endforeach
 
             </section>
+            @endif
         </main>
-        @include('layouts.footer')
+
 </body>

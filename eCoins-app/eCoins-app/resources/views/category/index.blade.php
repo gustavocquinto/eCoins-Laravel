@@ -19,15 +19,8 @@
             <button id="buttoncategory"type="submit"><a href="{{route('category.create')}}">Criar Categoria</a></button>
         </div>
     </header>
+
     <main>
-
-        <div class="table-container">
-
-            <div class="table-content">
-                <p>ID</p>
-                <p>Nome da Categoria</p>
-                <p>Ações</p>
-            </div>
             @if (count($categories) == false)
                 <p class="noProduct">Nenhuma Categoria Cadastrado</p>
             @else
@@ -54,6 +47,7 @@
 @endif
         </div>
     </main>
+
 
 
 </body>

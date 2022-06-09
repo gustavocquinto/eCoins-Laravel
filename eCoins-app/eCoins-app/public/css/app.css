@@ -30,7 +30,9 @@
     text-shadow: 2px 2px 2px black;
     box-shadow: -5px -3px 5px black;
     margin-top: 80px;
+
     }
+
     .footer-content{
         width: 28.88%;
         color: white;
@@ -44,7 +46,7 @@
     }
 
     .footer-content-item{
-        font-size: 25px;
+        font-size: 13px;
     }
 
 
@@ -382,6 +384,7 @@ ul a:hover {
     display: flex;
     flex-direction: column;
     margin-left: 15px;
+    margin-bottom: 15px;
   }
 
   .summary-content-text h1{
@@ -393,7 +396,8 @@ ul a:hover {
 
   .summary-content-text p{
     font-size: 1em;
-    padding: 0px;
+    padding-bottom: 15px;
+
   }
 
 

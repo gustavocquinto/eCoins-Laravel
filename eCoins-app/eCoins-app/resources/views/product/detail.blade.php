@@ -14,8 +14,8 @@
     </header>
     <main>
         <div class="container-product">
-
             <div class="product-image">
+                <p style="color:green; text-align: center;"color="style:green;"> {{session()->get('sucess')}} </p>
                 @if($products->image)
                 <img src="{{ asset($products->image) }}" alt="{{$products->name}}" class="product">
                 @else
@@ -29,13 +29,15 @@
                 <div class="buttons-product">
                     <form method="POST" action="{{route('cart.store', $products)}}">
                         @csrf
-                        <p color="style:green;"> {{session()->get('sucess')}} </p>
+
                         <button type="submit">Adicionar ao carrinho</button>
                         <button type="submit">Comprar agora</button>
+
                     </form>
                 </div>
             </div>
 
         </body>
+
 
 </html>
