@@ -542,17 +542,6 @@ main h1:nth-child(1) {
     box-sizing: border-box;
 }
 
-.slick-prev:before {
-    content: "<";
-    color: red;
-    font-size: 30px;
-  }
-
-  .slick-next:before {
-    content: ">";
-    color: red;
-    font-size: 30px;
-  }
 
 .table-container{
     background-color: #333547;

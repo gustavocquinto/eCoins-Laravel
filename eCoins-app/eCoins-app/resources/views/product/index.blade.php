@@ -31,6 +31,7 @@
                   <th>Nome Produto</th>
                   <th>Valor</th>
                   <th>Quantidade</th>
+                    <th>Categoria</th>
                   <th>Ações</th>
                 </tr>
                 @foreach ($products as $product)
@@ -40,6 +41,7 @@
                     <td>{{$product->name}}</td>
                     <td>R$ {{$product->price}}</td>
                     <td>{{$product->stock}}</td>
+                    <td>{{$product->category_id}}</td>
                     <td class="actions">
                         <a href="{{ route('product.edit', $product->id) }}">
                             <i class="fas fa-edit"></i>

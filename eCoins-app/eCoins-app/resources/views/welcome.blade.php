@@ -20,13 +20,13 @@
         </div>
     </header>
     <main>
-        <h1>Battle</h1>
+        <h1>FPS</h1>
         @include('components.game-cardBATTLE')
 
-        <h1>FPS</h1>
+        <h1>MOBA</h1>
         @include('components.game-cardFPS')
 
-        <h1>MOBA</h1>
+        <h1>DIVERSOS</h1>
         @include('components.game-cardMOBA')
     </main>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -37,7 +37,10 @@
     <script type="text/javascript">
         $('.products').slick({
             infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
             variableWidth: true,
+            variableHeight: true,
             autoplay: true,
             autoplaySpeed: 2000,
 
